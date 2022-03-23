@@ -9,7 +9,8 @@ def findPrimeNumber(n):
             continue
         for j in range(i+i,n+1,i):
             list[j] =0;
+    for i in range(2,n+1):
+        if(not list[i] == 0):
+            print(list[i], end=' ')
     
-    print(list)
-    
-    findPrimeNumber(100)
+findPrimeNumber(100)
