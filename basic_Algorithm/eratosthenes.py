@@ -14,3 +14,6 @@ def findPrimeNumber(n):
             print(list[i], end=' ')
     
 findPrimeNumber(100)
+
+def print_list(n):
+    sieve = [True] * n
