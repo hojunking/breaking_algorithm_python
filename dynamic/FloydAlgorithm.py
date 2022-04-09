@@ -12,3 +12,10 @@ def floyd2 (n,W,D,P):
                 if(D[i][j] > D[i][k] + D[k][j]):
                     D[i][j] = D[i][k] + D[k][j]
                     P[i][j] =k
+                    
+def path (P,u,v,p):
+    k = P[u][v]
+    if(k != 0):
+        path(P,u,k,p)
+        p.push_back(k)
+        path(P,k,v,p)
