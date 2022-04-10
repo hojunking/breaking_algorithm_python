@@ -29,9 +29,20 @@ def printMatrix(M):
             else:
                 print(M[i][j])
 
+def order(i,j,P):
+    if i==j:
+        return "(A" + str(i) + ')'
+    else:
+        return '(' + \
+                order(i, P[i][j],P) + \
+                order(P[i][j] +1,j,P) + \
+                ')'
+
 n = int(input())
 d = list(map(int, input().split())) #default " "
 M,P = minMult(n,d)
 printMatrix(M)
 printMatrix(P)
+print(M[1][n])
+print(order(1,n,P))
 
