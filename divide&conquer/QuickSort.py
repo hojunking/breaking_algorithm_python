@@ -17,7 +17,7 @@ def partition(data,low,high):
     
 
 def quickSort(data,low,high):
-    if(low < high):
+    if(low < high): 
         pivotPoint = partition(data,low,high)
         quickSort(data,low,pivotPoint -1)
         quickSort(data,pivotPoint+1, high)
