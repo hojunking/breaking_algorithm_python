@@ -7,12 +7,12 @@ for i in range(90000, 99999):
     j = i # i각 계속 연산되어야 하므로 따로 변수 j를 주어 i는 보존
     while True:
         if j == 1: # 계산 결과가 1이 되면 다음 숫자로 넘어가야 해서 while문 종료
-            if maximum < counter: # 최댓값일 때 변수에 기록
-                maximum = counter
-                result = i
-            # if minimum > counter:
-            #     minimum = counter
+            # if maximum < counter: # 최댓값일 때 변수에 기록
+            #     maximum = counter
             #     result = i
+            if minimum > counter:
+                minimum = counter
+                result = i
             break # while 문 종료
 
         counter += 1
