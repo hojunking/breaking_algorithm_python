@@ -2,19 +2,24 @@
 #Time Complexity = O(n^log2(7) ~ O(n^2.81))
 
 
+from asyncio import threads
 
-threashold = 1
+
+global threashold
+global cnt
+cnt =0
 
 def print_matrix(M):
     n = len(M)
     for i in range(n):
         for j in range(n):
-            print(M[i][j],end="\t")
+            print(M[i][j],end=" ")
         print()
             
 
 def madd(A,B):
     n = len(A)
+    
     C = [[0 for _ in range(n)] for _ in range(n)]
     for i in range(n):
         for j in range(n):
@@ -58,6 +63,8 @@ def combine(M11, M12,M21,M22):
     return M
 
 def strassen(A,B):
+    global threashold, cnt
+    cnt = cnt+1
     n = len(A)
     if n <= threashold:
         return mmult(A,B)
@@ -80,25 +87,25 @@ def strassen(A,B):
         C22 = madd(msub(madd(M1,M3), M2),M6)    
         return combine(C11, C12,C21 ,C22)
     
-n = int(input("threashold : "))
-print("input two matrix :")
+n,threashold = map(int,input().split())
+t = n
+k =1
+while k < n:
+    k = k*2
+    n =k
 
-A = [[]for _ in range(n)]
-for i in range(n):
+A = [[]for _ in range(t)]
+for i in range(t):
     A[i] = list(map(int, input().split()))
     
 
-B = [[]for _ in range(n)]
-for i in range(n):
+B = [[]for _ in range(t)]
+for i in range(t):
     B[i] = list(map(int, input().split()))
     
-C = mmult(A,B)
-print("Multiplied by the naive method:")
+C =strassen(A,B)
+print(cnt)
 print_matrix(C)
-
-D = strassen(A,B)
-print("Multiplied by Strassen Method:")
-print_matrix(D)
         
         
             
