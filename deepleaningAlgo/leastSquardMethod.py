@@ -13,7 +13,7 @@ X = list(map(int, input().split()))
 Y = list(map(int, input().split()))
 aveX = sum(X)/len(X)
 aveY = sum(Y)/len(Y)
- 
+  
 result =calc(X,aveX,Y,aveY)
 
 print(result)
