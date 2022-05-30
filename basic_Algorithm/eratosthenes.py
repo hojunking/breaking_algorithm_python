@@ -1,21 +1,14 @@
 import math
 
 def findPrimeNumber(n):
-    list =[]
-    for i in range(2,n):
-        list.insert(i,i)
-    print(list)
+    sieve =[1] * n
     
-    for i in range(2,math.floor(math.sqrt(n))):
-        if(list[i]==0):
-            continue
-        for j in range(i+i,n+1,i):
-            list[j] =0;
-    for i in range(2,n+1):
-        if(not list[i] == 0):
-            print(list[i], end=' ')
+    m = math.floor(math.sqrt(n)) # int(n **0.5)
+    for i in range(2,m+1):
+        if(sieve[i] == 1):
+            for j in range(i+i,n,i):
+                sieve[j] =0
+            
+    print([i for i in range(2,n) if sieve[i] == 1])
     
 findPrimeNumber(100)
-
-def print_list(n):
-    sieve = [True] * n
